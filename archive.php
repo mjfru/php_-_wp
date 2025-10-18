@@ -1,6 +1,7 @@
 <!-- This will power the generic blog listing screen -->
 <?php
 get_header(); ?>
+
 <div class="page-banner">
   <div
     class="page-banner__bg-image"
@@ -10,12 +11,13 @@ get_header(); ?>
       <?php the_archive_title(); ?>
 
       <!-- <?php if (is_category()) {
-        single_cat_title();
-      }
-      if (is_author()) {
-        echo "Posts by "; the_author();
-      }
-      ?> -->
+              single_cat_title();
+            }
+            if (is_author()) {
+              echo "Posts by ";
+              the_author();
+            }
+            ?> -->
     </h1>
     <div class="page-banner__intro">
       <p><?php the_archive_description(); ?></p>

@@ -1,6 +1,7 @@
 <!-- This will power the generic blog listing screen -->
 <?php
 get_header(); ?>
+
 <div class="page-banner">
   <div
     class="page-banner__bg-image"
