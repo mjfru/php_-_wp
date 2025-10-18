@@ -13,7 +13,7 @@
     <div class="container">
       <h1 class="school-logo-text float-left">
         <a href="<?php echo site_url() ?>">
-          <strong>DuBreau</strong> University
+          <strong>DuBreau</strong> College
         </a>
       </h1>
       <span class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
