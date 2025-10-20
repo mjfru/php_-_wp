@@ -106,6 +106,7 @@
 <div class="hero-slider">
   <div data-glide-el="track" class="glide__track">
     <div class="glide__slides">
+
       <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bus.jpg') ?>)">
         <div class="hero-slider__interior container">
           <div class="hero-slider__overlay">
@@ -115,6 +116,7 @@
           </div>
         </div>
       </div>
+
       <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/apples.jpg') ?>)">
         <div class="hero-slider__interior container">
           <div class="hero-slider__overlay">
@@ -124,6 +126,7 @@
           </div>
         </div>
       </div>
+
       <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('/images/bread.jpg') ?>)">
         <div class="hero-slider__interior container">
           <div class="hero-slider__overlay">
@@ -133,6 +136,7 @@
           </div>
         </div>
       </div>
+
     </div>
     <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]"></div>
   </div>
