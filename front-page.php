@@ -20,9 +20,21 @@
       </h2>
 
       <?php
+      $today = date('Ymd');
       $homepageEvents = new WP_Query(array(
-        'posts_per_page' => 2,
+        'posts_per_page' => -1,
         'post_type' => 'event',
+        'meta_key' => 'event_date',
+        'orderby' => 'meta_value_num',
+        'order' => 'ASC',
+        'meta_query' => array(
+          array(
+            'key' => 'event_date',
+            'compare' => '>=',
+            'value' => $today,
+            'type' => 'numeric',
+          )
+        )
       ));
 
       while ($homepageEvents->have_posts()) {
@@ -30,8 +42,19 @@
 
         <div class="event-summary">
           <a class="event-summary__date t-center" href="#">
-            <span class="event-summary__month">Mar</span>
-            <span class="event-summary__day">25</span>
+            <span class="event-summary__month">
+
+              <?php
+              $eventDate = new DateTime(get_field('event_date'));
+              echo $eventDate->format('M');
+              ?>
+
+            </span>
+            <span class="event-summary__day">
+              <?php
+              echo $eventDate->format('d');
+              ?>
+            </span>
           </a>
           <div class="event-summary__content">
             <h5 class="event-summary__title headline headline--tiny">
