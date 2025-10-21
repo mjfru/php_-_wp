@@ -23,8 +23,19 @@ get_header(); ?>
     the_post(); ?>
     <div class="event-summary">
       <a class="event-summary__date t-center" href="#">
-        <span class="event-summary__month">Mar</span>
-        <span class="event-summary__day">25</span>
+        <span class="event-summary__month">
+
+          <?php
+          $eventDate = new DateTime(get_field('event_date'));
+          echo $eventDate->format('M');
+          ?>
+
+        </span>
+        <span class="event-summary__day">
+          <?php
+          echo $eventDate->format('d');
+          ?>
+        </span>
       </a>
       <div class="event-summary__content">
         <h5 class="event-summary__title headline headline--tiny">
@@ -41,7 +52,10 @@ get_header(); ?>
   echo paginate_links();
 
   ?>
-
+  <hr class="section-break">
+  <p>Looking for a recap of our past events?
+    <a href="<?php echo site_url('/past-events') ?>">Check out our past events</a>
+  </p>
 
 </div>
 <?php get_footer(); ?>
