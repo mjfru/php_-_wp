@@ -1,4 +1,5 @@
 <?php
+// the_ID();
 get_header();
 
 while (have_posts()) {
@@ -29,8 +30,40 @@ while (have_posts()) {
       <?php the_content(); ?>
     </div>
 
-    <!-- Custom Query to show relationship to event types -->
+    <!-- Custom Query to show relationship to professors -->
     <?php
+    $relatedProfessors = new WP_Query(array(
+      'posts_per_page' => -1,
+      'post_type' => 'professor',
+      'orderby' => 'title',
+      'order' => 'ASC',
+      'meta_query' => array(
+        array(
+          'key' => 'related_programs',
+          'compare' => 'LIKE',
+          'value' => '"' . get_the_ID() . '"',
+        )
+      )
+    ));
+
+    if ($relatedProfessors->have_posts()) {
+      echo '<hr class="section-break">';
+      echo '<h2 class"headline headline--medium">' . get_the_title() .  ' Professors</h2>';
+
+      while ($relatedProfessors->have_posts()) {
+        $relatedProfessors->the_post(); ?>
+
+        <li>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </li>
+      <?php }
+    }
+
+    // Without this, the next query wouldn't run because of depending on different page and content IDs:
+    wp_reset_postdata();
+
     $today = date('Ymd');
     $homepageEvents = new WP_Query(array(
       'posts_per_page' => 2,
