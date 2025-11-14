@@ -50,15 +50,19 @@ while (have_posts()) {
       echo '<hr class="section-break">';
       echo '<h2 class"headline headline--medium">' . get_the_title() .  ' Professors</h2>';
 
+      echo '<ul class="professor_cards">';
       while ($relatedProfessors->have_posts()) {
         $relatedProfessors->the_post(); ?>
 
-        <li>
-          <a href="<?php the_permalink(); ?>">
-            <?php the_title(); ?>
+        <li class="professor-card__list-item">
+          <a class="professor-card" href="<?php the_permalink(); ?>">
+            <img class="professor-card__image" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+            <span class="professor-card__name"><?php the_title(); ?></span>
           </a>
         </li>
       <?php }
+
+      echo '</ul>';
     }
 
     // Without this, the next query wouldn't run because of depending on different page and content IDs:
