@@ -5,7 +5,6 @@
 function pageBanner($args = null)
 {
   // PHP Logic lives here:
-
   if (!isset($args['title'])) {
     $args['title'] = get_the_title();
   }
@@ -38,7 +37,7 @@ function pageBanner($args = null)
   </div>
 
 
-<?php
+  <?php
 }
 
 

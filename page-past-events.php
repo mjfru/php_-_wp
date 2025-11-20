@@ -1,6 +1,11 @@
 <!-- This will power the past events screen -->
 <?php
-get_header(); ?>
+get_header();
+pageBanner(array(
+  "title" => "Past Events",
+  "subtitle" => "A collection of our past events",
+));
+?>
 
 <div class="page-banner">
   <div
