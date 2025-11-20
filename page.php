@@ -3,11 +3,13 @@
 get_header();
 
 while (have_posts()) {
-  the_post(); ?>
+  the_post();
+  pageBanner();
+?>
   <!-- <h1>This is a page, not a post!</h1> -->
   <!-- <h2> the_title(); </h2> -->
   <!-- php the_content();  -->
-  <div class="page-banner">
+  <!-- <div class="page-banner">
     <div
       class="page-banner__bg-image"
       style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg') ?>);"></div>
@@ -17,7 +19,7 @@ while (have_posts()) {
         <p>Don't forget to replace this later!</p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="container container--narrow page-section">
 
@@ -38,32 +40,32 @@ while (have_posts()) {
     ?>
 
 
-<?php 
-  $testArray = get_pages(array(
-    'child_of' => get_the_ID()
-  ));
+    <?php
+    $testArray = get_pages(array(
+      'child_of' => get_the_ID()
+    ));
 
-  if ($theParentId or $testArray) { ?>
+    if ($theParentId or $testArray) { ?>
 
-    <div class="page-links">
-      <h2 class="page-links__title"><a href="<?php echo get_permalink($theParentId); ?>"><?php echo get_the_title($theParentId) ?></a></h2>
-      <ul class="min-list">
-        <?php
-        if ($theParentId) {
-          $findChildrenOf = $theParentId;
-        } else {
-          $findChildrenOf = get_the_ID();
-        }
+      <div class="page-links">
+        <h2 class="page-links__title"><a href="<?php echo get_permalink($theParentId); ?>"><?php echo get_the_title($theParentId) ?></a></h2>
+        <ul class="min-list">
+          <?php
+          if ($theParentId) {
+            $findChildrenOf = $theParentId;
+          } else {
+            $findChildrenOf = get_the_ID();
+          }
 
-        wp_list_pages(array(
-          'title_li' => NULL,
-          'child_of' => $findChildrenOf,
-          'sort_column' => 'menu_order',
-        ));
-        ?>
-      </ul>
-    </div>
-<?php } ?>
+          wp_list_pages(array(
+            'title_li' => NULL,
+            'child_of' => $findChildrenOf,
+            'sort_column' => 'menu_order',
+          ));
+          ?>
+        </ul>
+      </div>
+    <?php } ?>
 
     <div class="generic-content">
       <p>
